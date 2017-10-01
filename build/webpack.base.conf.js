@@ -21,12 +21,19 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
+      '@src': path.resolve(__dirname, '../src'),
+      '@components': path.resolve(__dirname, '../src/components'),
+      '@network': path.resolve(__dirname, '../src/network'),
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
     }
   },
   module: {
     rules: [
+      {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader",
+      },
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',

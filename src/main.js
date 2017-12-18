@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { routerOptions } from './options/index'
+import './filters'
 
 Vue.use(VueRouter)
 

@@ -40,8 +40,8 @@ export function jsonp (urlObj, callback) {
  * =============================================  */
 let basicParams = {
   g_tk: 1604785682,
-  uin: 494873674, // qq acount
-  format: 'jsonp',
+  uin: 769970587, // qq acount
+  format: 'json',
   inCharset: 'utf-8',
   outCharset: 'utf-8',
   notice: 0,
@@ -77,6 +77,7 @@ let apiList = {
       type: 1,
       utf8: 1,
       nosign: 1,
+      new_format: 1,
       onlysong: 0
     }
   },
@@ -132,5 +133,6 @@ let apiList = {
 // return a api handler that expose all api methods
 export function apiHandler (api, callback) {
   var apis = getEncodingUrl(typeof api === 'string' ? apiList[api] : (apiList[api.name].params = Object.assign({}, apiList[api.name].params, api.params), apiList[api.name]))
+  console.log(apis)
   return jsonp(apis, callback)
 }
